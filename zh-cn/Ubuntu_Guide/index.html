@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Ubuntu指南 - LinShan&#39;s Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/Ubuntu_Guide/" rel="alternate" hreflang="en" />
+    
+
+
+
+
+
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/zh-cn">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/LinShanify" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Ubuntu指南
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-05-27T12:22:31.000Z" itemprop="datePublished">5月 27 2019</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/zh-cn/categories/Guide/">指南</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            5 分钟 读完 (约 687 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>Ubuntu使用技巧</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="Windows系统下在制作Ubuntu系统的USB启动盘"><a href="#Windows系统下在制作Ubuntu系统的USB启动盘" class="headerlink" title="Windows系统下在制作Ubuntu系统的USB启动盘"></a>Windows系统下在制作Ubuntu系统的USB启动盘</h2><ol>
+<li>去官网下载Ubuntu系统的ISO文件:<a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">下载官网</a></li>
+<li>下载<a href="https://rufus.akeo.ie/" target="_blank" rel="noopener">Rufus</a>工具, 一个免费开源的USB写入工具.</li>
+<li>插入U盘后, 使用Rufus工具把Ubuntu写入U盘. Ubuntu官网有详细的<a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows" target="_blank" rel="noopener">教程</a></li>
+</ol>
+<hr>
+<h2 id="解决Ubuntu-Windows双系统-切换系统后更改时区时间的问题"><a href="#解决Ubuntu-Windows双系统-切换系统后更改时区时间的问题" class="headerlink" title="解决Ubuntu-Windows双系统 切换系统后更改时区时间的问题"></a>解决Ubuntu-Windows双系统 切换系统后更改时区时间的问题</h2><p>在Ubuntu-Windows双系统,从ubuntu切换到Windows后, Windows时间会切换成UTC时区时间. 在Ubuntu系统下可以运行以下命令行解决这个问题.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">timedatectl <span class="built_in">set</span>-local-rtc 1 --adjust-system-clock</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="修改GRUB默认启动系统"><a href="#修改GRUB默认启动系统" class="headerlink" title="修改GRUB默认启动系统"></a>修改GRUB默认启动系统</h2><p>在Ubuntu-Windows双系统中, 默认启动系统是Ubuntu. 在Ubuntu下我们可以通过修改GRUB的默认启动顺序让Windows变成默认启动项. 在grub文件中找<code>GRUB_DEFAULT=0</code>修改为<code>GRUB_DEFAULT=4</code>. 4表示在GRUB启动界面中第五个选项<strong>(这个数值可能不一样,根据自己的系统修改)</strong>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在grub文件中修改GRUB_DEFAULT=4</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo nano /etc/default/grub</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新grub</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">sudo update-grub</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="创建新用户-并给予sudo权限"><a href="#创建新用户-并给予sudo权限" class="headerlink" title="创建新用户,并给予sudo权限"></a>创建新用户,并给予<code>sudo</code>权限</h2><ol>
+<li>用<code>adduser</code>命令创建新用户.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo adduser &lt;username&gt;</span></pre></td></tr></table></figure></li>
+<li>用<code>usermod</code>命令把这个用户加入到<code>sudo</code>组中.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">usermod -aG sudo &lt;username&gt;</span></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h2 id="修改电脑名"><a href="#修改电脑名" class="headerlink" title="修改电脑名"></a>修改电脑名</h2><p>修改<code>/etc/hostname</code>和<code>/etc/hosts</code>两个文件.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/hostname /etc/hosts</span></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Ubuntu-拼音输入法"><a href="#Ubuntu-拼音输入法" class="headerlink" title="Ubuntu 拼音输入法"></a>Ubuntu 拼音输入法</h2><ul>
+<li>Ubuntu 16.04 系统最好使用 <code>fcitx</code>谷歌拼音<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx-googlepinyin</span></pre></td></tr></table></figure></li>
+<li>Ubuntu 18.05系统似乎只能用<code>ibus</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo apt-get install ibus-pinyin</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo apt-get install ibus-sunpinyin</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">ibus restart</span></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="Ubuntu服务器用命令行修改默认时区"><a href="#Ubuntu服务器用命令行修改默认时区" class="headerlink" title="Ubuntu服务器用命令行修改默认时区"></a>Ubuntu服务器用命令行修改默认时区</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure tzdata</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="服务器上SSH登陆后可能不默认加载-bashrc"><a href="#服务器上SSH登陆后可能不默认加载-bashrc" class="headerlink" title="服务器上SSH登陆后可能不默认加载.bashrc"></a>服务器上SSH登陆后可能不默认加载<code>.bashrc</code></h2><p>在SSH登陆服务器时,用户目录下的<code>.bashrc</code>不会加载. 打开自动加载<code>.bashrc</code>需要修改<code>.bash_profile</code>(没有的话需要创建). 在<code>.bash_profile</code>中添加下面的代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if [ -f ~&#x2F;.bashrc ]; then</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  . ~&#x2F;.bashrc</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">fi</span></pre></td></tr></table></figure>
+<ul>
+<li>登陆shell先加载 <code>/etc/profile</code>  然后加载 <code>~/.bash_profile</code>.</li>
+<li>非登陆shell先加载 <code>/etc/bash.bashrc</code> 然后加载 <code>~/.bashrc</code></li>
+</ul>
+<hr>
+<h2 id="还原-bashrc"><a href="#还原-bashrc" class="headerlink" title="还原 .bashrc"></a>还原 <code>.bashrc</code></h2><p>如果不小心删除了<code>.bashrc</code>文件,运行下面的命令把还原默认<code>.bashrc</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">/bin/cp /etc/skel/.bashrc ~/</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="Ubuntu在命令行-关机-重启"><a href="#Ubuntu在命令行-关机-重启" class="headerlink" title="Ubuntu在命令行 关机 / 重启"></a>Ubuntu在命令行 关机 / 重启</h2><ul>
+<li><strong>关机</strong>: <code>sudo poweroff</code></li>
+<li><strong>重启</strong>: <code>sudo reboot</code></li>
+</ul>
+<hr>
+<h2 id="解决Chrome打开链接后显示空白页面"><a href="#解决Chrome打开链接后显示空白页面" class="headerlink" title="解决Chrome打开链接后显示空白页面"></a>解决Chrome打开链接后显示空白页面</h2><p><code>google-chrome.desktop</code>可能缺了%U参数</p>
+<ol>
+<li>打开文件:<code>$HOME/.local/share/applications/google-chrome.desktop</code></li>
+<li>找到这行代码:<code>Exec=/opt/google/chrome/chrome</code></li>
+<li>加上空格和%U: <code>Exec=/opt/google/chrome/chrome %U</code></li>
+</ol>
+<hr>
+<h2 id="Localhost-IP"><a href="#Localhost-IP" class="headerlink" title="Localhost IP"></a>Localhost IP</h2><p><code>localhost = 127.0.0.1</code></p>
+<hr>
+<h2 id="Ubuntu笔记本合上屏幕不休眠"><a href="#Ubuntu笔记本合上屏幕不休眠" class="headerlink" title="Ubuntu笔记本合上屏幕不休眠"></a>Ubuntu笔记本合上屏幕不休眠</h2><ol>
+<li>在Terminal运行代码,修改UPower配置:<code>sudo nano /etc/UPower/UPower.cong</code></li>
+<li>把IgnoreLid 改成 <code>IgnoreLid=true</code></li>
+<li>保存 并 重启UPower服务:<code>sudo service upower restart</code></li>
+</ol>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/zh-cn/tags/Ubuntu/">#Ubuntu</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/zh-cn/SSH_Guide/">SSH 指南</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Lin Shan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/LinShanify" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>简体中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/Ubuntu_Guide/" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/Ubuntu_Guide/" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+
+<script src="/js/script.js"></script>
+
+    
+</body>
+</html>

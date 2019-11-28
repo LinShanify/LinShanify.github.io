@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>手动搭建Shadowsocks服务器 - LinShan&#39;s Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/ShadowSockets_Manual/" rel="alternate" hreflang="en" />
+    
+
+
+
+
+
+
+
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+
+</head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/zh-cn">
+                
+                <img src="/images/logo.png" alt="" height="28">
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            
+            
+            <a class="navbar-item" title="GitHub" href="https://github.com/LinShanify" target="_blank" rel="noopener">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            手动搭建Shadowsocks服务器
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2019-04-01T03:43:26.000Z" itemprop="datePublished">4月 1 2019</time>
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/zh-cn/categories/Web/">网络</a>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 分钟 读完 (约 475 字)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>手动搭建ShadowSocks服务器,解决科学上网问题</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="安卓ShadowSocks服务器"><a href="#安卓ShadowSocks服务器" class="headerlink" title="安卓ShadowSocks服务器"></a>安卓ShadowSocks服务器</h2><p>安装python版本的ShadowSocks</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">### 安装pip管理工具</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">### 安装 shadowsocks</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设置ShadowSocks配置文件"><a href="#设置ShadowSocks配置文件" class="headerlink" title="设置ShadowSocks配置文件"></a>设置ShadowSocks配置文件</h2><p>创建一个<code>json</code>配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">sudo nano /etc/shadowsocks.json</span></pre></td></tr></table></figure>
+<p>把下面的配置代码改成你的服务器IP地址和密码. 复制到<code>shadowsocks.json</code> 文件中.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"server"</span>:<span class="string">"服务器IP地址"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"server_port"</span>:<span class="number">8388</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"local_port"</span>:<span class="number">1080</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"password"</span>:<span class="string">"密码"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"timeout"</span>:<span class="number">300</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	<span class="attr">"fast_open"</span>: <span class="literal">false</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="启动ShadowSocks服务器"><a href="#启动ShadowSocks服务器" class="headerlink" title="启动ShadowSocks服务器"></a>启动ShadowSocks服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行ShadowSocks服务器</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在后台运行ShadowSocks服务器</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="解决-EVP-CIPHER-CTX-cleanup-报错"><a href="#解决-EVP-CIPHER-CTX-cleanup-报错" class="headerlink" title="解决 EVP_CIPHER_CTX_cleanup 报错"></a>解决 <code>EVP_CIPHER_CTX_cleanup</code> 报错</h2><p>openssl升级到1.1.0以上版本，导致shadowsocks2.8.2启动报<code>undefined symbol: EVP_CIPHER_CTX_cleanup</code>错误。</p>
+<p>这个问题是由于在openssl1.1.0版本中，废弃了<code>EVP_CIPHER_CTX_cleanup</code> 函数, 改成了<code>EVP_CIPHER_CTX_reset</code>.</p>
+<p><strong>解决方法:</strong></p>
+<ol>
+<li>修改 ShaodowSocks <code>openssl.py</code> 文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">vim &#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py</span></pre></td></tr></table></figure></li>
+<li>跳到52行（shadowsocks2.8.2版本，其他版本搜索一下<code>cleanup</code>）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变成</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</span></pre></td></tr></table></figure></li>
+<li>跳到111行 (shadowsocks2.8.2版本，其他版本搜索一下<code>cleanup</code>）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx) </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变成</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">改为libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</span></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<h2 id="最好用的ShadowSocks客户端-Outline"><a href="#最好用的ShadowSocks客户端-Outline" class="headerlink" title="最好用的ShadowSocks客户端: Outline"></a>最好用的ShadowSocks客户端: Outline</h2><p>桌面版:<br><a href="https://raw.githubusercontent.com/Jigsaw-Code/outline-releases/master/client/stable/Outline-Client.exe" target="_blank" rel="noopener">Windows</a> / <a href="https://itunes.apple.com/us/app/outline-app/id1356178125" target="_blank" rel="noopener">MacOS</a> / <a href="https://raw.githubusercontent.com/Jigsaw-Code/outline-releases/master/client/stable/Outline-Client.AppImage" target="_blank" rel="noopener">Linux</a></p>
+<p>手机版: <a href="https://itunes.apple.com/us/app/outline-app/id1356177741" target="_blank" rel="noopener">iOS</a> / <a href="https://play.google.com/store/apps/details?id=org.outline.android.client" target="_blank" rel="noopener">Android</a></p>
+<p><strong>生成Access Key</strong>:</p>
+<p>Outline的Access Key格式: <code>ss://加密方式:密码@IP地址:端口</code><br>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ss:&#x2F;&#x2F;aes-256-cfb:yourpassword@your_server_ip:8388</span></pre></td></tr></table></figure>
+<p>这个Access Key 并不能直接给Outline需要BASE64转码. </p>
+<p>最简答的方法就是去ShadowSocks<a href="https://shadowsocks.org/en/config/quick-guide.html" target="_blank" rel="noopener">官网</a>直接转码并生成QR Code </p>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/zh-cn/tags/ShadowSocks/">#ShadowSocks</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/zh-cn/tags/VPN/">#VPN</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/zh-cn/ShadowSockets_Script/">一键安装Shadowsocks服务器</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/zh-cn/MacOS_Guide/">MacOS指南</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+
+
+
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2019 Lin Shan&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/LinShanify" target="_blank" rel="noopener">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>简体中文</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/ShadowSockets_Manual/" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/ShadowSockets_Manual/" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-CN");
+</script>
+
+
+
+<script src="/js/script.js"></script>
+
+    
+</body>
+</html>
