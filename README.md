@@ -60,8 +60,8 @@ page = "https://linshan.notion.site/Lin-Shan-a1a4aebf98504bfd9b20e97f6dc2f0c8"
 
 [pages]
 
-  [pages.f9e012aafe724803906dc080087f8e59]
-    slug = "publication"
+  [pages.d2fa06f244e64f66880bb0491f58223d]
+    slug = "games-list"
 
     [[pages.d2fa06f244e64f66880bb0491f58223d.meta]]
     name = "description"

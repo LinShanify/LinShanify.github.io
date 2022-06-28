@@ -44,7 +44,7 @@ jobs:
           python loconotion example/example_site.toml > test.log 2>&1
 
       - name: Deploy to Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
