@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lin Shan</title>
+  <meta name="description" content="Lin Shan — Presales Engineer at DDN, PhD in Computer Science. AI Infrastructure, HPC Storage, Computer Vision.">
+  <meta property="og:title" content="Lin Shan">
+  <meta property="og:description" content="Presales Engineer @ DDN | PhD Computer Science | AI Infrastructure & Computer Vision">
+  <meta property="og:image" content="assets/img/profile.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0f172a;
+      --navy-mid:   #1e293b;
+      --blue:       #3b82f6;
+      --blue-dark:  #1d4ed8;
+      --blue-light: #dbeafe;
+      --slate-50:   #f8fafc;
+      --slate-100:  #f1f5f9;
+      --slate-200:  #e2e8f0;
+      --slate-400:  #94a3b8;
+      --slate-500:  #64748b;
+      --slate-700:  #334155;
+      --slate-800:  #1e293b;
+      --white:      #ffffff;
+      --max-w:      880px;
+      --radius:     8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--slate-800);
+      background: var(--white);
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ──────────────────────────── NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 54px;
+    }
+    .nav-logo { color: var(--white); font-weight: 700; font-size: 1rem; letter-spacing: 0.4px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover { color: var(--white); text-decoration: none; }
+
+    /* ──────────────────────────── HERO */
+    #hero {
+      background: linear-gradient(160deg, var(--navy) 0%, #162032 100%);
+      color: var(--white);
+      padding: 72px 24px 80px;
+    }
+    .hero-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; gap: 52px; flex-wrap: wrap;
+    }
+    .hero-photo {
+      width: 150px; height: 150px;
+      border-radius: 50%; object-fit: cover;
+      border: 3px solid rgba(59,130,246,0.45);
+      flex-shrink: 0;
+    }
+    .hero-photo-fallback {
+      width: 150px; height: 150px; border-radius: 50%;
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; font-weight: 700; color: white;
+      flex-shrink: 0; display: none;
+    }
+    .hero-info { flex: 1; min-width: 240px; }
+    .hero-name {
+      font-size: 2.6rem; font-weight: 800;
+      letter-spacing: -0.5px; margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: 1.05rem; color: rgba(255,255,255,0.65);
+      margin-bottom: 18px; font-weight: 400;
+    }
+    .hero-bio {
+      font-size: 0.94rem; color: rgba(255,255,255,0.55);
+      line-height: 1.75; max-width: 520px; margin-bottom: 26px;
+    }
+    .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.8);
+      padding: 6px 14px; border-radius: 6px;
+      font-size: 0.83rem; font-weight: 500;
+      transition: background 0.18s, color 0.18s;
+    }
+    .hero-link:hover {
+      background: rgba(59,130,246,0.22); color: var(--white);
+      text-decoration: none;
+    }
+
+    /* ──────────────────────────── SECTION BASE */
+    section { padding: 64px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+
+    h2.section-title {
+      font-size: 1.35rem; font-weight: 700; color: var(--slate-800);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    h2.section-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--slate-200);
+    }
+
+    /* ──────────────────────────── ABOUT */
+    #about { background: var(--slate-50); }
+    .about-text {
+      color: var(--slate-700); line-height: 1.85; max-width: 740px;
+      font-size: 0.97rem;
+    }
+    .about-text + .about-text { margin-top: 14px; }
+
+    /* ──────────────────────────── PUBLICATIONS */
+    #publications { background: var(--white); }
+    .pub-list { display: flex; flex-direction: column; gap: 14px; }
+    .pub-item {
+      padding: 18px 20px 16px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 4px solid var(--blue);
+      border-radius: var(--radius);
+    }
+    .pub-title { font-weight: 600; color: var(--slate-800); line-height: 1.45; margin-bottom: 5px; }
+    .pub-meta { font-size: 0.82rem; color: var(--slate-500); margin-bottom: 9px; }
+    .pub-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pub-link { font-size: 0.82rem; color: var(--blue); font-weight: 500; }
+    .pub-link:hover { text-decoration: underline; }
+
+    /* ──────────────────────────── PROJECTS */
+    #projects { background: var(--slate-50); }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px; padding: 22px;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .project-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.07); }
+    .project-title { font-size: 0.97rem; font-weight: 700; color: var(--slate-800); line-height: 1.4; margin-bottom: 7px; }
+    .project-funder { font-size: 0.78rem; color: var(--blue); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 10px; }
+    .project-desc { font-size: 0.875rem; color: var(--slate-500); line-height: 1.65; margin-bottom: 12px; }
+    .project-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .project-link { font-size: 0.82rem; color: var(--blue); font-weight: 500; }
+
+    /* ──────────────────────────── COMPETITIONS */
+    #competitions { background: var(--white); }
+    .comp-list { display: flex; flex-direction: column; gap: 14px; }
+    .comp-item {
+      display: flex; align-items: flex-start; gap: 18px;
+      padding: 18px 20px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+    }
+    .comp-badge {
+      min-width: 58px; text-align: center;
+      font-size: 0.85rem; font-weight: 800; color: var(--blue-dark);
+      padding: 8px 6px; background: var(--blue-light);
+      border-radius: 6px; line-height: 1.3; flex-shrink: 0;
+    }
+    .comp-info { flex: 1; }
+    .comp-title { font-weight: 600; color: var(--slate-800); margin-bottom: 4px; font-size: 0.95rem; }
+    .comp-desc { font-size: 0.86rem; color: var(--slate-500); line-height: 1.6; margin-bottom: 8px; }
+    .comp-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .comp-link { font-size: 0.82rem; color: var(--blue); font-weight: 500; }
+
+    /* ──────────────────────────── EXPERIENCE */
+    #experience { background: var(--slate-50); }
+    .timeline { position: relative; padding-left: 26px; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 7px; top: 6px; bottom: 6px;
+      width: 2px; background: var(--slate-200);
+    }
+    .timeline-item { position: relative; margin-bottom: 26px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -22px; top: 5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--blue);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--slate-200);
+    }
+    .timeline-period { font-size: 0.76rem; color: var(--slate-400); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+    .timeline-role { font-size: 0.97rem; font-weight: 700; color: var(--slate-800); margin-bottom: 2px; }
+    .timeline-org { font-size: 0.88rem; color: var(--blue); font-weight: 500; margin-bottom: 5px; }
+    .timeline-desc { font-size: 0.86rem; color: var(--slate-500); line-height: 1.65; }
+
+    .exp-subsection { margin-top: 36px; }
+    .exp-subsection h3 { font-size: 1.05rem; font-weight: 700; color: var(--slate-700); margin-bottom: 20px; }
+
+    /* ──────────────────────────── DATASETS */
+    #datasets { background: var(--white); }
+    .dataset-card {
+      padding: 22px 24px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+    }
+    .dataset-title { font-size: 1.02rem; font-weight: 700; color: var(--slate-800); margin-bottom: 12px; }
+    .dataset-meta {
+      display: flex; flex-direction: column; gap: 6px;
+      font-size: 0.875rem; color: var(--slate-500); margin-bottom: 14px;
+    }
+    .dataset-meta strong { color: var(--slate-700); }
+    .dataset-link { font-size: 0.88rem; color: var(--blue); font-weight: 500; }
+
+    /* ──────────────────────────── FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      text-align: center; padding: 32px 24px;
+      font-size: 0.83rem;
+    }
+    footer a { color: rgba(255,255,255,0.55); }
+    footer a:hover { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 8px; flex-wrap: wrap; }
+
+    /* ──────────────────────────── RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero-inner { gap: 28px; }
+      .hero-name { font-size: 2rem; }
+      .hero-photo { width: 120px; height: 120px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Lin Shan</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <img src="assets/img/profile.png" alt="Lin Shan" class="hero-photo"
+         onerror="this.style.display='none'; document.querySelector('.hero-photo-fallback').style.display='flex'">
+    <div class="hero-photo-fallback">LS</div>
+    <div class="hero-info">
+      <div class="hero-name">Lin Shan</div>
+      <div class="hero-title">Presales Engineer @ DDN &nbsp;&middot;&nbsp; PhD Computer Science</div>
+      <div class="hero-bio">
+        AI infrastructure specialist and computer vision researcher. Currently driving AI/HPC storage solutions across APAC at DataDirect Networks. Former Research Fellow and team lead at ROSE Lab, NTU (2020&ndash;2024). PhD from University of Warwick, EU Marie Curie Fellow.
+      </div>
+      <div class="hero-links">
+        <a href="mailto:linshanify@gmail.com" class="hero-link">&#9993; Email</a>
+        <a href="https://www.linkedin.com/in/linshan03/" class="hero-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=3MQDywkAAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.youtube.com/c/ShanLin03/videos" class="hero-link" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://space.bilibili.com/1486214/video" class="hero-link" target="_blank" rel="noopener">Bilibili</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <h2 class="section-title">About</h2>
+    <p class="about-text">
+      I am currently a Presales Engineer at <strong>DataDirect Networks (DDN)</strong>, specializing in AI infrastructure and high-performance storage solutions for the APAC region. Prior to this role, I was a Research Fellow at the <strong>Rapid-Rich Object Search (ROSE) Lab</strong>, Nanyang Technological University (NTU), where I led a 10-person team developing feasible AI solutions for real-world problems.
+    </p>
+    <p class="about-text" style="margin-top:14px;">
+      I obtained my Ph.D. in Computer Science from the University of Warwick (2015&ndash;2020), supervised by
+      <a href="https://scholar.google.co.uk/citations?user=nzLXktMAAAAJ&hl=en" target="_blank" rel="noopener">Prof. Chang-Tsun Li</a> and
+      <a href="https://scholar.google.com/citations?user=UGZXLxIAAAAJ&hl=en" target="_blank" rel="noopener">Prof. Alex C. Kot</a>.
+      I was a Marie Sklodowska-Curie Fellow under the EU Horizon 2020 IDENTITY project, with research exchanges to Hong Kong Baptist University and NTU in 2016 and 2017. My research spans <strong>Person Re-identification</strong>, <strong>Deepfake Detection</strong>, and <strong>AI Domain Adaptation &amp; Generalization</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Sep 2024 &mdash; Present</div>
+        <div class="timeline-role">Presales Engineer</div>
+        <div class="timeline-org">DataDirect Networks (DDN) &middot; Singapore</div>
+        <div class="timeline-desc">Technical Presales and Solution Architecture for AI/HPC storage infrastructure across the APAC region.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">May 2020 &mdash; Sep 2024</div>
+        <div class="timeline-role">Research Fellow</div>
+        <div class="timeline-org">ROSE Lab, Nanyang Technological University &middot; Singapore</div>
+        <div class="timeline-desc">Led a 10-person research team focused on AI/ML, computer vision, and real-world deployment of intelligent surveillance systems.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Jul 2019 &mdash; Apr 2020</div>
+        <div class="timeline-role">Project Officer</div>
+        <div class="timeline-org">ROSE Lab, Nanyang Technological University &middot; Singapore</div>
+        <div class="timeline-desc">AI and computer vision research projects.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Oct 2017 &mdash; Jul 2019</div>
+        <div class="timeline-role">Research Assistant &mdash; Marie Curie Fellowship</div>
+        <div class="timeline-org">ROSE Lab, Nanyang Technological University &middot; Singapore</div>
+        <div class="timeline-desc">EU Horizon 2020 Marie Sklodowska-Curie Fellowship. Research on Person Re-identification and cross-domain adaptation.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Dec 2016 &mdash; Mar 2017</div>
+        <div class="timeline-role">Senior Research Assistant &mdash; Marie Curie Fellowship</div>
+        <div class="timeline-org">Hong Kong Baptist University &middot; Hong Kong</div>
+        <div class="timeline-desc">Research exchange under EU Horizon 2020 IDENTITY project.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Mar 2015 &mdash; Apr 2015</div>
+        <div class="timeline-role">Engineering Intern</div>
+        <div class="timeline-org">Tencent / Capcom &middot; Shanghai</div>
+        <div class="timeline-desc">Monster Hunter Online game development.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Jul 2014 &mdash; Aug 2014</div>
+        <div class="timeline-role">Engineering Intern</div>
+        <div class="timeline-org">ZTE / Boom-T &middot; Guangzhou</div>
+        <div class="timeline-desc">Power grid communication systems.</div>
+      </div>
+
+    </div>
+
+    <div class="exp-subsection">
+      <h3>Education</h3>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Oct 2015 &mdash; Apr 2020</div>
+          <div class="timeline-role">Doctor of Philosophy (Ph.D.) &mdash; Computer Science</div>
+          <div class="timeline-org">University of Warwick &middot; United Kingdom</div>
+          <div class="timeline-desc">Supervised by Prof. Chang-Tsun Li and Prof. Alex C. Kot. Research: Person Re-identification, Domain Adaptation/Generalization. EU Marie Sklodowska-Curie Fellow.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2012 &mdash; 2015</div>
+          <div class="timeline-role">Bachelor of Science (B.Sc.) &mdash; Computer Science</div>
+          <div class="timeline-org">University of Warwick &middot; United Kingdom</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-title">DSTA-ROSE: AI for Human Re-Identification Across Cameras</div>
+        <div class="project-funder">Defence Science and Technology Agency (DSTA)</div>
+        <div class="project-desc">
+          AI-powered person re-identification system for trajectory tracking and person matching across camera networks. Deployed for COVID-19 contact tracing at Changi Exhibition Centre isolation facility.
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://youtu.be/yi472d_jT9c" target="_blank" rel="noopener">[Trajectory Tracking]</a>
+          <a class="project-link" href="https://youtu.be/MWz4MKJ5x60" target="_blank" rel="noopener">[Person Matching]</a>
+          <a class="project-link" href="projects/dsta-rose-reid.html" style="font-weight:700">Read More &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">KLASS-ROSE: Image Enhancement for Person Re-ID in Low Light</div>
+        <div class="project-funder">KLASS</div>
+        <div class="project-desc">
+          Image enhancement techniques and domain adaptation methods to improve person re-identification under low-light and challenging lighting conditions.
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">DSTA-ROSE: Attire Insensitive Person Re-ID</div>
+        <div class="project-funder">Defence Science and Technology Agency (DSTA)</div>
+        <div class="project-desc">
+          Robust person re-identification that remains effective when subjects change clothing, addressing a critical challenge for long-term surveillance applications.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ COMPETITIONS -->
+<section id="competitions">
+  <div class="section-inner">
+    <h2 class="section-title">Competitions</h2>
+    <div class="comp-list">
+
+      <div class="comp-item">
+        <div class="comp-badge">&#127942;<br>1st</div>
+        <div class="comp-info">
+          <div class="comp-title">IEEE SPS 5-Minute Video Clip Contest &mdash; &ldquo;Fight the Pandemic&rdquo;</div>
+          <div class="comp-desc">Visual Analytic System for Pandemic Management During COVID-19</div>
+          <div class="comp-links">
+            <a class="comp-link" href="https://youtu.be/im7L-KuSzIA" target="_blank" rel="noopener">[YouTube]</a>
+            <a class="comp-link" href="https://www.ntu.edu.sg/rose/news-events/news/detail/rose-lab-team-wins-1st-place" target="_blank" rel="noopener">[News]</a>
+            <a class="comp-link" href="competitions/ieee-sps.html" style="font-weight:700">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-badge">&#127944;<br>2nd RU</div>
+        <div class="comp-info">
+          <div class="comp-title">NUS-MIT Healthcare AI Datathon 2020</div>
+          <div class="comp-desc">Domain Shift Problem in Chest X-ray Diagnosis AI Model &mdash; 2nd Runner-up</div>
+          <div class="comp-links">
+            <a class="comp-link" href="https://youtu.be/A9tMBH9o6NA" target="_blank" rel="noopener">[YouTube]</a>
+            <a class="comp-link" href="https://www.ntu.edu.sg/rose/news-events/news/detail/2nd-runner-up-in-nus-mit-healthcare-ai-datathon-2020" target="_blank" rel="noopener">[News]</a>
+            <a class="comp-link" href="competitions/nus-mit.html" style="font-weight:700">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-badge">Top 10<br>9th</div>
+        <div class="comp-info">
+          <div class="comp-title">Trusted Media Challenge 2021 &mdash; Deepfake Detection</div>
+          <div class="comp-desc">9th Place Overall, 2nd among Universities &mdash; multi-modal deepfake and lip-sync detection</div>
+          <div class="comp-links">
+            <a class="comp-link" href="https://youtu.be/n2lpnF9XBY8" target="_blank" rel="noopener">[Deepfake Demo]</a>
+            <a class="comp-link" href="https://youtu.be/bRzm8HSixZw" target="_blank" rel="noopener">[Lip Sync Demo]</a>
+            <a class="comp-link" href="competitions/trusted-media.html" style="font-weight:700">Read More &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DATASETS -->
+<section id="datasets">
+  <div class="section-inner">
+    <h2 class="section-title">Datasets</h2>
+    <div class="dataset-card">
+      <div class="dataset-title">NTU Outdoor Dataset</div>
+      <div class="dataset-meta">
+        <div><strong>Location:</strong> Nanyang Technological University Outdoor Campus</div>
+        <div><strong>Cameras:</strong> 51 real-world surveillance cameras (38 in released version)</div>
+        <div><strong>Identities:</strong> 805 IDs (549 in released version)</div>
+        <div><strong>Attributes:</strong> 40 soft biometric attributes</div>
+        <div><strong>Coverage:</strong> 24-hour images (day &amp; night)</div>
+      </div>
+      <a class="dataset-link" href="https://rose1.ntu.edu.sg/dataset/NTU-Outdoor-38/" target="_blank" rel="noopener">Download Dataset &rarr;</a>
+      &nbsp;&nbsp;<a class="dataset-link" href="datasets/ntu-outdoor.html" style="font-weight:700">Full Details &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-title">A Unified Deep Semantic Expansion Framework For Domain-Generalized Person Re-Identification</div>
+        <div class="pub-meta">Neurocomputing &middot; 2024</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2410.08456" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Color Space Learning for Cross-Color Person Re-Identification</div>
+        <div class="pub-meta">ICME &middot; 2024</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2405.09487" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Diverse Deep Feature Ensemble Learning for Omni-Domain Generalized Person Re-identification</div>
+        <div class="pub-meta">ICMIP &middot; 2024</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://dl.acm.org/doi/abs/10.1145/3665026.3665036" target="_blank" rel="noopener">[ACM DL]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Aligned Divergent Pathways for Omni-Domain Generalized Person Re-Identification</div>
+        <div class="pub-meta">ICEEE &middot; 2024</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2410.08466" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Adversarial Pairwise Reverse Attention for Camera Performance Imbalance in Person Re-Identification: New Dataset and Metrics</div>
+        <div class="pub-meta">ICIP 2022 &middot; Eugene P.W. Ang, Shan Lin, Alex C Kot</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://arxiv.org/abs/2207.01204" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">DEX: Domain Embedding Expansion for Generalized Person Re-identification</div>
+        <div class="pub-meta">BMVC 2021 &middot; Eugene P.W. Ang, Shan Lin, Alex C Kot</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://www.bmvc2021-virtualconference.com/assets/papers/0686.pdf" target="_blank" rel="noopener">[BMVC]</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2110.11391" target="_blank" rel="noopener">[arXiv]</a>
+          <a class="pub-link" href="https://www.bmvc2021-virtualconference.com/conference/papers/paper_0686.html" target="_blank" rel="noopener">[Video]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Multi-Domain Adversarial Feature Generalization for Person Re-Identification</div>
+        <div class="pub-meta">IEEE Transactions on Image Processing (TIP) &middot; 2020 &middot; Shan Lin, Chang-Tsun Li, Alex C Kot</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/9311771/" target="_blank" rel="noopener">[IEEE]</a>
+          <a class="pub-link" href="https://arxiv.org/abs/2011.12563" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Person Re-identification with Soft Biometrics through Deep Learning</div>
+        <div class="pub-meta">Deep Biometrics, Springer &middot; 2020 &middot; Shan Lin, Chang-Tsun Li</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-3-030-32583-1_2" target="_blank" rel="noopener">[Springer]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Scalable Deep Feature Learning for Person Re-Identification</div>
+        <div class="pub-meta">PhD Thesis &middot; University of Warwick &middot; 2019</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://wrap.warwick.ac.uk/id/eprint/143315/" target="_blank" rel="noopener">[Warwick]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Homogeneous Feature Transfer and Heterogeneous Location Fine-tuning for Cross-City Property Appraisal Framework</div>
+        <div class="pub-meta">AusDM 2018, Springer &middot; Yihan Guo, Shan Lin, Xiao Ma, Jay Bal, Chang-Tsun Li</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-981-13-6661-1_13" target="_blank" rel="noopener">[Springer]</a>
+          <a class="pub-link" href="https://arxiv.org/abs/1812.05486" target="_blank" rel="noopener">[arXiv]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Multi-task Mid-level Feature Alignment Network for Unsupervised Cross-Dataset Person Re-Identification</div>
+        <div class="pub-meta">BMVC 2018 Spotlight &middot; Shan Lin, Haoliang Li, Chang-Tsun Li, Alex C Kot</div>
+        <div class="pub-links">
+          <a class="pub-link" href="http://www.bmva.org/bmvc/2018/contents/papers/0244.pdf" target="_blank" rel="noopener">[BMVC]</a>
+          <a class="pub-link" href="https://arxiv.org/abs/1807.01440" target="_blank" rel="noopener">[arXiv]</a>
+          <a class="pub-link" href="https://youtu.be/tZPYV7kktKc?t=4104" target="_blank" rel="noopener">[YouTube]</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">End-to-End Correspondence and Relationship Learning of Mid-Level Deep Features for Person Re-Identification</div>
+        <div class="pub-meta">DICTA 2017 &middot; Shan Lin, Chang-Tsun Li</div>
+        <div class="pub-links">
+          <a class="pub-link" href="https://ieeexplore.ieee.org/document/8227426" target="_blank" rel="noopener">[IEEE]</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ FOOTER -->
+<footer>
+  <p>&copy; Lin Shan 2026 &middot; Singapore</p>
+  <div class="footer-links">
+    <a href="mailto:linshanify@gmail.com">linshanify@gmail.com</a>
+    <a href="https://www.linkedin.com/in/linshan03/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://scholar.google.com/citations?user=3MQDywkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+  </div>
+</footer>
+
+</body>
+</html>
