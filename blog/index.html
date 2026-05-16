@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Lin Shan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f172a; --blue: #3b82f6; --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0; --slate-400: #94a3b8; --slate-500: #64748b; --slate-700: #334155; --slate-800: #1e293b; --white: #ffffff; --max-w: 860px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; } a:hover { text-decoration: underline; }
+    nav { background: var(--navy); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 54px; }
+    .nav-back { color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500; }
+    .nav-back:hover { color: white; text-decoration: none; }
+    .nav-sep { color: rgba(255,255,255,0.3); }
+    .nav-title { color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%); color: white; padding: 48px 24px 56px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); background: rgba(59,130,246,0.12); display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 14px; }
+    .hero-title { font-size: 2rem; font-weight: 800; }
+    .content { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    .post-card { border: 1px solid var(--slate-200); border-radius: 10px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.18s; }
+    .post-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+    .post-card a.post-link { display: block; padding: 22px 24px; text-decoration: none; }
+    .post-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--blue); margin-bottom: 8px; }
+    .post-title { font-size: 1.1rem; font-weight: 700; color: var(--slate-800); margin-bottom: 8px; }
+    .post-desc { font-size: 0.875rem; color: var(--slate-500); line-height: 1.6; }
+    .post-arrow { float: right; font-size: 1.1rem; color: var(--slate-400); margin-top: -2px; }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">&#8592; Lin Shan</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">Blog</span>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Blog</div>
+    <div class="hero-title">Technical Notes &amp; Cheat Sheets</div>
+  </div>
+</div>
+<div class="content">
+  <div class="post-card">
+    <a class="post-link" href="python.html">
+      <span class="post-arrow">&#8594;</span>
+      <div class="post-tag">Python</div>
+      <div class="post-title">Python Quick Reference</div>
+      <div class="post-desc">Format output, string operations, list manipulation, type checking, exception handling, and more.</div>
+    </a>
+  </div>
+  <div class="post-card">
+    <a class="post-link" href="pandas.html">
+      <span class="post-arrow">&#8594;</span>
+      <div class="post-tag">Pandas</div>
+      <div class="post-title">Pandas Cheat Sheet</div>
+      <div class="post-desc">Essential Pandas operations and reference PDF for data manipulation.</div>
+    </a>
+  </div>
+  <div class="post-card">
+    <a class="post-link" href="cli-tools.html">
+      <span class="post-arrow">&#8594;</span>
+      <div class="post-tag">CLI</div>
+      <div class="post-title">CLI Tools Reference</div>
+      <div class="post-desc">Network speed testing, iperf connection benchmarking, and other useful command-line tools.</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

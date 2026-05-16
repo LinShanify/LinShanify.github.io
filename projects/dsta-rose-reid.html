@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSTA-ROSE: AI for Human Re-Identification — Lin Shan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f172a; --blue: #3b82f6; --blue-dark: #1d4ed8;
+      --slate-50: #f8fafc; --slate-200: #e2e8f0; --slate-500: #64748b;
+      --slate-700: #334155; --slate-800: #1e293b; --white: #ffffff;
+      --max-w: 860px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 54px; }
+    .nav-back { color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+    .nav-back:hover { color: white; text-decoration: none; }
+    .nav-logo { color: var(--white); font-weight: 700; font-size: 1rem; }
+    .nav-sep { color: rgba(255,255,255,0.3); }
+    .nav-title { color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%); color: white; padding: 52px 24px 60px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); background: rgba(59,130,246,0.12); display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+    .hero-title { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; }
+    .hero-funder { font-size: 0.9rem; color: rgba(255,255,255,0.55); }
+    .hero-funder a { color: rgba(255,255,255,0.75); }
+    .content { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    h2 { font-size: 1.4rem; font-weight: 700; color: var(--slate-800); margin: 48px 0 16px; padding-top: 8px; border-top: 2px solid var(--blue); display: inline-block; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--slate-800); margin: 28px 0 10px; }
+    p { color: var(--slate-700); line-height: 1.8; margin-bottom: 16px; }
+    .figure { margin: 28px 0; }
+    .figure img { width: 100%; border-radius: 8px; border: 1px solid var(--slate-200); }
+    .figure figcaption { font-size: 0.82rem; color: var(--slate-500); margin-top: 8px; text-align: center; font-style: italic; }
+    .callout { background: var(--slate-50); border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; font-size: 0.9rem; color: var(--slate-700); }
+    .video-embed { margin: 24px 0; }
+    .video-embed a { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: white; padding: 10px 18px; border-radius: 6px; font-size: 0.88rem; font-weight: 600; }
+    .video-embed a:hover { background: var(--blue-dark); text-decoration: none; }
+    .links-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+    .link-btn { display: inline-block; padding: 7px 14px; background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 6px; font-size: 0.85rem; color: var(--blue); font-weight: 500; }
+    .link-btn:hover { background: var(--blue); color: white; text-decoration: none; }
+    article-ref { display: block; background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 8px; padding: 14px 18px; margin: 20px 0; font-size: 0.88rem; color: var(--slate-600); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">&#8592; Lin Shan</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">DSTA-ROSE: ReID</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Research Project</div>
+    <div class="hero-title">DSTA-ROSE: AI for Human Re-Identification Across Cameras</div>
+    <div class="hero-funder">Funded by <a href="https://www.dsta.gov.sg/home" target="_blank" rel="noopener">Defence Science and Technology Agency (DSTA)</a></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <h2>Background of Person Re-ID</h2>
+  <p>Person re-identification (Person Re-ID) is defined as the problem of matching people across disjoint camera views in a multi-camera system. It is useful for a number of public security applications such as intelligent camera surveillance systems. In a typical real-world application, one single person, or a watch-list of a handful of known people, is provided as the target set for searching through a large volume of video surveillance footage. Given a person seen in one camera, the aim is to re-identify that person in another camera based on their visual appearance.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/projects/reid/figure1-cross-camera.png" alt="Figure 1: Re-identifying the same person across different cameras in NTU EEE Building">
+    <figcaption>Figure 1: Re-identifying the same person across different cameras in NTU EEE Building.</figcaption>
+  </figure>
+
+  <p>Regardless of the increasing attention received from both the academic and industry worlds, person re-identification remains an extremely challenging task. This is due to a list of reasons including: (1) different viewing angles across cameras, (2) very low frame rate in typical CCTV footage, (3) crowded environments, (4) many occlusions, (5) imperfect human detection, and (6) the open-set nature of the problem — an unlimited number of classes (identities).</p>
+
+  <h2>ROSE-IDENTITY Person ReID Model</h2>
+  <p>To address these difficulties, we reformulate the Person Re-ID problem as a multi-dataset domain generalization problem. The NTU ROSE Lab in collaboration with the University of Warwick proposed a novel framework — <strong>MMFA-AAE (Multi-task Mid-level Feature Alignment with Adversarial Auto-Encoder)</strong> — for domain generalization, which aims to learn a universal representation via domain-based adversarial learning while aligning the distribution of mid-level features.</p>
+
+  <div class="callout">
+    📄 <strong>[1]</strong> Lin, S., Li, C., &amp; Kot, A. C. (2021). Multi-Domain Adversarial Feature Generalization for Person Re-Identification. <em>IEEE Transactions on Image Processing</em>. <a href="https://ieeexplore.ieee.org/abstract/document/9311771/" target="_blank" rel="noopener">[IEEE]</a> <a href="https://arxiv.org/abs/2011.12563" target="_blank" rel="noopener">[arXiv]</a>
+  </div>
+
+  <figure class="figure">
+    <img src="../assets/img/projects/reid/figure2-mmfa-aae.png" alt="Figure 2: MMFA-AAE framework overview">
+    <figcaption>Figure 2: An overview of the MMFA-AAE framework for Person Re-ID multi-domain generalization.</figcaption>
+  </figure>
+
+  <p>MMFA-AAE simultaneously minimizes the losses of data reconstruction, identity classification, and triplet verification. It alleviates domain difference via adversarial training and matches the distribution of mid-level features across multiple datasets. Our approach not only outperforms most domain generalization Person Re-ID methods but also surpasses many state-of-the-art supervised and unsupervised domain adaptation methods by a large margin.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/projects/reid/table1-comparison.png" alt="Table 1: Comparison against state-of-the-art methods">
+    <figcaption>Table 1: Comparison against state-of-the-art methods. (R: Rank, S: Supervised training with a target dataset, DA: Domain Adaptation, DG: Domain Generalization)</figcaption>
+  </figure>
+
+  <p>Unlike many other supervised or domain adaptation Person Re-ID models, MMFA-AAE can work on any unseen surveillance camera network without any additional training or fine-tuning. It provides a well-generalized feature representation with usable performance for real-world surveillance applications.</p>
+
+  <h3>EU IDENTITY Project Collaboration</h3>
+  <div class="callout">
+    💡 The MMFA-AAE network is a collaboration with the University of Warwick through the <strong>EU IDENTITY</strong> project (EU Horizon 2020 Marie Sklodowska-Curie Actions, Project No. 690907). The IDENTITY project integrates multimedia forensics into forensic science, covering technologies to identify, categorise and classify image/video sources, authenticate content integrity, and re-identify persons across cameras. <a href="https://cordis.europa.eu/project/id/690907" target="_blank" rel="noopener">[CORDIS]</a>
+  </div>
+
+  <h2>Applications</h2>
+
+  <h3>ROSE EEE ReID System</h3>
+  <p>Based on the MMFA-AAE model, the ROSE Lab developed a web-based AI-powered surveillance system integrated with the 175 surveillance cameras in the NTU EEE building, processing video feeds in real-time. The system provides two main functions:</p>
+  <ul style="color: var(--slate-700); padding-left: 20px; margin-bottom: 16px; line-height: 1.9;">
+    <li><strong>Trajectory Tracking Retrieval</strong> — find the person of interest (POI) in all cameras and plot their historical movement trajectory within the building</li>
+    <li><strong>Real-time Person Matching</strong> — match the POI in real-time and raise alerts for surveillance officers</li>
+  </ul>
+
+  <div class="links-row">
+    <a href="https://youtu.be/yi472d_jT9c" class="link-btn" target="_blank" rel="noopener">▶ Video 1: Trajectory Tracking</a>
+    <a href="https://youtu.be/MWz4MKJ5x60" class="link-btn" target="_blank" rel="noopener">▶ Video 2: Real-time Matching</a>
+  </div>
+
+  <h3>ROSE &amp; DSTA-Digital Hub Human Re-ID System for COVID-19</h3>
+  <p>The ROSE Re-ID system is based on the Flask micro web framework and can be easily integrated into any surveillance network via RTSP or HTTP video streams. During the COVID-19 pandemic, this system was modified and deployed in foreign worker isolation facilities to enhance security.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/projects/reid/figure3-system-ui.jpeg" alt="Figure 3: ROSE & DSTA-Digital Hub Human Re-ID System UI">
+    <figcaption>Figure 3: ROSE &amp; DSTA-Digital Hub Human Re-ID System UI with Person Search and Real-Time Video Stream.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="../assets/img/projects/reid/figure4-cec.png" alt="Figure 4: Security Operation Center at Changi Exhibition Center">
+    <figcaption>Figure 4: ROSE &amp; DSTA-Digital Hub Human Re-ID System at the Security Operation Center at Changi Exhibition Center (CEC).</figcaption>
+  </figure>
+
+  <p>Related coverage: <a href="https://www.straitstimes.com/singapore/health/coronavirus-singapore-airshow-grounds-converted-to-isolation-facility" target="_blank" rel="noopener">The Straits Times — Singapore Airshow grounds converted to isolation facility</a></p>
+
+</div>
+</body>
+</html>
