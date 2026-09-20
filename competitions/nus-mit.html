@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUS-MIT Healthcare AI Datathon 2020 — Lin Shan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f172a; --blue: #3b82f6; --slate-50: #f8fafc; --slate-200: #e2e8f0; --slate-500: #64748b; --slate-700: #334155; --slate-800: #1e293b; --white: #ffffff; --max-w: 860px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; } a:hover { text-decoration: underline; }
+    nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 54px; }
+    .nav-back { color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500; }
+    .nav-back:hover { color: white; text-decoration: none; }
+    .nav-sep { color: rgba(255,255,255,0.3); }
+    .nav-title { color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%); color: white; padding: 52px 24px 60px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); background: rgba(59,130,246,0.12); display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+    .hero-title { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.65); }
+    .hero-result { font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-top: 8px; }
+    .hero-result strong { color: white; }
+    .content { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    h2 { font-size: 1.35rem; font-weight: 700; color: var(--slate-800); margin: 40px 0 14px; border-top: 2px solid var(--blue); padding-top: 8px; display: inline-block; }
+    p { color: var(--slate-700); line-height: 1.8; margin-bottom: 16px; }
+    .figure { margin: 28px 0; }
+    .figure img { width: 100%; border-radius: 8px; border: 1px solid var(--slate-200); max-width: 600px; display: block; margin: 0 auto; }
+    .figure figcaption { font-size: 0.82rem; color: var(--slate-500); margin-top: 8px; text-align: center; font-style: italic; }
+    .team { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 10px; padding: 18px 22px; margin: 24px 0; }
+    .team h3 { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--slate-500); margin-bottom: 10px; }
+    .team-members { list-style: none; display: flex; gap: 12px; flex-wrap: wrap; }
+    .team-members li { background: white; border: 1px solid var(--slate-200); border-radius: 6px; padding: 6px 12px; font-size: 0.875rem; color: var(--slate-700); }
+    .team-members li strong { color: var(--slate-800); }
+    .ref { background: var(--slate-50); border-left: 3px solid var(--slate-400); border-radius: 0 6px 6px 0; padding: 12px 16px; margin: 20px 0; font-size: 0.875rem; color: var(--slate-600); }
+    .links-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0; }
+    .link-btn { display: inline-block; padding: 7px 14px; background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 6px; font-size: 0.85rem; color: var(--blue); font-weight: 500; }
+    .link-btn:hover { background: var(--blue); color: white; text-decoration: none; }
+    .video-link { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: white; padding: 9px 16px; border-radius: 6px; font-size: 0.86rem; font-weight: 600; }
+    .video-link:hover { background: #3b82f6; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">&#8592; Lin Shan</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">NUS-MIT Healthcare AI Datathon 2020</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Competition &mdash; 2nd Runner-up</div>
+    <div class="hero-title">NUS-MIT Healthcare AI Datathon 2020</div>
+    <div class="hero-sub">Domain Shift Problem in Chest X-ray Diagnosis AI Model</div>
+    <div class="hero-result">Team Leader &middot; <strong>2nd Runner-up</strong> among 50 teams worldwide</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <p>A team from the ROSE Lab took the 2nd Runner-up position among <strong>50 teams from all over the world</strong> at the NUS-MIT Healthcare AI Datathon 2020. This three-day datathon (11–13 December 2020) was organized by the National University of Singapore (NUS), National University Health System (NUHS), and MIT Critical Data, aiming to bring together clinicians, data scientists and innovators to address current healthcare problems with data analytics.</p>
+
+  <div class="team">
+    <h3>Team</h3>
+    <ul class="team-members">
+      <li><strong>Dr. Lin Shan</strong> — Team Leader, Research Fellow</li>
+      <li>Rahul Ahuja — Project Officer</li>
+      <li>Yang Siyuan — PhD Candidate</li>
+      <li>Wang Yufei — PhD Candidate</li>
+      <li>Li Ling — PhD Candidate</li>
+    </ul>
+    <p style="font-size: 0.82rem; color: var(--slate-500); margin: 12px 0 0;">Supervised by Prof. Alex Kot, Director of ROSE Lab, NTU</p>
+  </div>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/nus-mit/team-photo.jpeg" alt="ROSE Lab Team at NUS-MIT Healthcare AI Datathon 2020">
+    <figcaption>ROSE Lab Team at the NUS-MIT Healthcare AI Datathon 2020.</figcaption>
+  </figure>
+
+  <h2>Problem: Domain Shift in Medical AI</h2>
+  <p>Our team focused on solving the <strong>domain shift problem</strong> in deep learning chest X-ray diagnosis AI models. Domain shift is a critical issue where AI models trained on data from one hospital/device perform significantly worse when applied to data from a different source, even for the same diseases.</p>
+
+  <p>In the datathon, our team demonstrated the cross-dataset performance degradation of models trained on <strong>Chexpert</strong>, <strong>ChestX-Ray8</strong>, and <strong>MIMIC-CXR-JPG</strong> datasets. We then mitigated the problem using:</p>
+  <ul style="color: var(--slate-700); padding-left: 20px; margin-bottom: 16px; line-height: 1.9;">
+    <li><strong>MMD (Maximum Mean Discrepancy)</strong> — classic domain adaptation method</li>
+    <li><strong>LDDG (Linear-Dependency Domain Generalization)</strong> — our team's own domain generalization method [1]</li>
+  </ul>
+
+  <div class="ref">
+    [1] H. Li, Y. Wang, R. Wan, S. Wang, T.-Q. Li, and A. C. Kot, "Domain Generalization for Medical Imaging Classification with Linear-Dependency Regularization," in <em>Proc. Advances in Neural Information Processing Systems (NeurIPS)</em>, 2020.
+  </div>
+
+  <div class="links-row">
+    <a href="https://youtu.be/A9tMBH9o6NA" class="video-link" target="_blank" rel="noopener">&#9654; Presentation Video (YouTube)</a>
+    <a href="https://www.bilibili.com/video/BV1u54y1t7QH" class="link-btn" target="_blank" rel="noopener">Bilibili</a>
+    <a href="https://www.ntu.edu.sg/rose/news-events/news/detail/2nd-runner-up-in-nus-mit-healthcare-ai-datathon-2020" class="link-btn" target="_blank" rel="noopener">ROSE Lab News</a>
+    <a href="https://www.nus-datathon.com/results" class="link-btn" target="_blank" rel="noopener">Contest Results</a>
+  </div>
+
+</div>
+</body>
+</html>
