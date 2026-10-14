@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Lin Shan</title>
+  <meta name="description" content="Privacy Policy for personal tools operated by Lin Shan.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f172a; --blue: #3b82f6; --slate-50: #f8fafc; --slate-200: #e2e8f0;
+      --slate-500: #64748b; --slate-800: #1e293b; --white: #ffffff; --max-w: 760px; --radius: 8px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+           'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7;
+           color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%);
+             color: var(--white); padding: 2.6rem 1.5rem 2.2rem; }
+    header .wrap { max-width: var(--max-w); margin: 0 auto; }
+    header h1 { font-size: 1.9rem; font-weight: 650; letter-spacing: -0.01em; }
+    header p { color: #94a3b8; margin-top: 0.4rem; font-size: 0.93rem; }
+    header a { color: #93c5fd; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 2.4rem 1.5rem 4rem; }
+    h2 { font-size: 1.18rem; font-weight: 640; color: var(--navy); margin: 2rem 0 0.7rem;
+         padding-bottom: 0.4rem; border-bottom: 1px solid var(--slate-200); }
+    h2:first-of-type { margin-top: 0; }
+    p { margin-bottom: 0.9rem; }
+    ul { margin: 0 0 1rem 1.2rem; }
+    li { margin-bottom: 0.4rem; }
+    code { background: var(--slate-50); border: 1px solid var(--slate-200);
+           border-radius: 4px; padding: 0.1rem 0.35rem; font-size: 0.88em; }
+    .note { background: var(--slate-50); border-left: 3px solid var(--blue);
+            border-radius: var(--radius); padding: 0.9rem 1.1rem; margin: 1.2rem 0; }
+    footer { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem 3rem;
+             color: var(--slate-500); font-size: 0.87rem; }
+  </style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p>Personal tools operated by Lin Shan · <a href="/">linshanify.github.io</a></p>
+</div></header>
+<main>
+<div class="note">
+  <strong>Short version:</strong> These are single-user tools that run on my own computer and
+  access only my own Google account data. There is no server, no analytics, no third party,
+  and nothing is shared with anyone. If you are not Lin Shan, these tools are not for you and
+  hold no data about you.
+</div>
+
+<h2>1. Who this covers</h2>
+<p>This policy applies to personal command-line tools and scripts operated by Lin Shan
+(<a href="mailto:linshanify@gmail.com">linshanify@gmail.com</a>), including the Google Cloud
+OAuth application registered as <code>gws CLI</code>. These tools are not products, are not
+distributed, and are not offered to other users.</p>
+
+<h2>2. What data is accessed</h2>
+<p>When authorised, the tools may read data from the operator's own Google account through
+official Google APIs. Scopes currently requested are read-only:</p>
+<ul>
+  <li><code>gmail.readonly</code> - read mail messages and labels</li>
+  <li><code>drive.readonly</code> - read files and file metadata</li>
+  <li><code>calendar.readonly</code> - read calendar events</li>
+  <li><code>contacts.readonly</code> - read contacts</li>
+</ul>
+<p>Access is limited to the account that grants consent. The tools cannot access any other
+person's Google account.</p>
+
+<h2>3. How data is handled</h2>
+<ul>
+  <li><strong>Processing is local.</strong> Data is read into memory or onto the operator's own
+      machine for personal note-keeping and archiving. It is not uploaded anywhere.</li>
+  <li><strong>No servers.</strong> There is no backend, no hosted service, and no database
+      operated by these tools.</li>
+  <li><strong>No third parties.</strong> Data is not sold, shared, transferred, or disclosed to
+      any third party, and is not used for advertising or profiling.</li>
+  <li><strong>No analytics or telemetry.</strong> The tools do not report usage anywhere.</li>
+  <li><strong>No model training.</strong> Data accessed through these tools is not used to train
+      machine learning models.</li>
+</ul>
+
+<h2>4. Credential storage</h2>
+<p>OAuth tokens are stored only on the operator's own machine. Refresh tokens are encrypted at
+rest with AES-256-GCM, with the encryption key held in the operating system keychain. Tokens are
+never transmitted other than to Google's own token endpoints.</p>
+
+<h2>5. Retention and deletion</h2>
+<p>Retention is entirely at the operator's discretion, since all copies live on the operator's
+own machine. Access can be revoked at any time from
+<a href="https://myaccount.google.com/permissions">Google Account permissions</a>, which
+immediately invalidates all stored tokens.</p>
+
+<h2>6. Limited Use disclosure</h2>
+<p>Use and transfer of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+User Data Policy</a>, including its Limited Use requirements.</p>
+
+<h2>7. Changes</h2>
+<p>This policy may be updated as the tools change. The revision date below reflects the current
+version.</p>
+
+<h2>8. Contact</h2>
+<p><a href="mailto:linshanify@gmail.com">linshanify@gmail.com</a></p>
+</main>
+<footer>Last updated: 20 September 2026 · <a href="/">Back to homepage</a> · <a href="/terms.html">Terms of Service</a></footer>
+</body>
+</html>

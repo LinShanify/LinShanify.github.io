@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTU Outdoor Dataset — Lin Shan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f172a; --blue: #3b82f6; --slate-50: #f8fafc; --slate-200: #e2e8f0; --slate-500: #64748b; --slate-700: #334155; --slate-800: #1e293b; --white: #ffffff; --max-w: 860px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; } a:hover { text-decoration: underline; }
+    nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 54px; }
+    .nav-back { color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500; }
+    .nav-back:hover { color: white; text-decoration: none; }
+    .nav-sep { color: rgba(255,255,255,0.3); }
+    .nav-title { color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%); color: white; padding: 52px 24px 60px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); background: rgba(59,130,246,0.12); display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+    .hero-title { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 18px; }
+    .stats-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 4px; }
+    .stat { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 12px 16px; }
+    .stat-val { font-size: 1.3rem; font-weight: 800; color: var(--blue); }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .content { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    h2 { font-size: 1.4rem; font-weight: 700; color: var(--slate-800); margin: 48px 0 16px; padding-top: 8px; border-top: 2px solid var(--blue); display: inline-block; }
+    h3 { font-size: 1.05rem; font-weight: 700; color: var(--slate-800); margin: 28px 0 10px; }
+    p { color: var(--slate-700); line-height: 1.8; margin-bottom: 16px; }
+    .figure { margin: 28px 0; }
+    .figure img { width: 100%; border-radius: 8px; border: 1px solid var(--slate-200); }
+    .figure figcaption { font-size: 0.82rem; color: var(--slate-500); margin-top: 8px; text-align: center; font-style: italic; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 0.875rem; }
+    th { background: var(--navy); color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+    td { padding: 9px 12px; border-bottom: 1px solid var(--slate-200); color: var(--slate-700); }
+    tr:nth-child(even) td { background: var(--slate-50); }
+    td:first-child, th:first-child { font-weight: 600; }
+    .download-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: white; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; margin-top: 8px; }
+    .download-btn:hover { background: #1d4ed8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">&#8592; Lin Shan</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">NTU Outdoor Dataset</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Dataset</div>
+    <div class="hero-title">NTU Outdoor Dataset</div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-val">51</div><div class="stat-label">Surveillance Cameras</div></div>
+      <div class="stat"><div class="stat-val">805</div><div class="stat-label">Identities</div></div>
+      <div class="stat"><div class="stat-val">40</div><div class="stat-label">Attribute Labels</div></div>
+      <div class="stat"><div class="stat-val">24h</div><div class="stat-label">Day &amp; Night</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <p>The existing public Person Re-ID datasets have a very limited number of cameras ranging from 6 to 15, reducing variation and diversity. As a result, recently proposed algorithms can achieve over 90% rank-1 accuracy on Market1501 and DukeMTMC-reID. However, real-world surveillance systems usually consist of over hundreds of cameras. Creating a more realistic dataset is the foundation for developing a more generalized and robust Person ReID model.</p>
+
+  <a href="https://rose1.ntu.edu.sg/dataset/NTU-Outdoor-38/" class="download-btn" target="_blank" rel="noopener">&#8595; Download NTU-Outdoor-38</a>
+
+  <h2>Dataset Collection</h2>
+  <p>The NTU-Outdoor dataset was collected within the NTU campus using actual surveillance cameras installed on lamp posts. There are a total of 34 camera groups, each containing two to four cameras pointing in different directions.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig1-camera-locations.png" alt="Figure 1: Camera Group Locations">
+    <figcaption>Figure 1: Camera Group Locations across the NTU campus.</figcaption>
+  </figure>
+
+  <p>Based on all 34 camera groups, 8 paths were designed for participants to walk past the cameras. The 8 paths contain 51 cameras from 23 camera groups. A total of 332 NTU students, staff and residents participated in this dataset collection.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig2-collection-paths.png" alt="Figure 2: Eight Paths for Data Collection">
+    <figcaption>Figure 2: Eight designed paths for data collection across the NTU campus.</figcaption>
+  </figure>
+
+  <p>To increase annotation efficiency, a mobile web app was developed for this collection. By running the app on a smartphone, the GPS information and timestamps of the participant passing each camera were automatically recorded. This significantly reduced the searching time window for annotators.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig3-webapp.png" alt="Figure 3: NTU Outdoor Data Collection Web App">
+    <figcaption>Figure 3: NTU Outdoor Data Collection Web App Design.</figcaption>
+  </figure>
+
+  <p>After phase 1 annotation, 26,175 three-minute video clips were extracted. From those clips, a total of 45,397 bounding box images were annotated with 40 additional attribute labels, collected from 278 different people (unique identities) with 805 different appearances over an 8-week period.</p>
+
+  <h2>Why This Dataset Matters</h2>
+
+  <h3>1. More Cameras</h3>
+  <p>All existing large-scale datasets use only 6–15 cameras. The NTU-Outdoor dataset uses 51 real-world surveillance cameras covering the entire 2 km² NTU campus.</p>
+
+  <table>
+    <thead><tr><th>Dataset</th><th>Market-1501</th><th>DukeMTMC-reID</th><th>MSMT17</th><th>NTU Outdoor</th></tr></thead>
+    <tbody><tr><td>Cameras</td><td>6</td><td>8</td><td>15</td><td><strong>51</strong></td></tr></tbody>
+  </table>
+
+  <h3>2. Actual Surveillance Viewing Angles</h3>
+  <p>Market1501 and MSMT17 use cameras mounted on tripods, giving a near-horizontal view. Real surveillance cameras are mounted on lamp posts or ceilings with wide-angle, top-down views. NTU-Outdoor uses only actual lamp post surveillance cameras.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig4-viewing-angles.png" alt="Figure 4: Viewing Angles comparison">
+    <figcaption>Figure 4: Viewing Angles of Market1501, MSMT15 and NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <h3>3. Day &amp; Night Coverage</h3>
+  <p>Real-world surveillance runs 24/7. All existing public datasets only use daytime video. NTU-Outdoor records all cameras for 24 hours non-stop, with 38.6% of images captured during nighttime.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig5-daynight-samples.png" alt="Figure 5: Same person in afternoon, evening and night">
+    <figcaption>Figure 5: Same Person in the Afternoon, Evening and Night Time in NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig6-daynight-pct.png" alt="Figure 6: Day and Night time distribution">
+    <figcaption>Figure 6: Percentage of Day Time vs Night Time Images in NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <h3>4. Attribute Labels</h3>
+  <p>Appearance attributes are extremely valuable auxiliary information for training generalized Person Re-ID models. In NTU-Outdoor Dataset, most attributes are submitted by participants themselves, eliminating manual annotation and providing more accurate labels.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig7-color-distribution.png" alt="Figure 7: Upper and Lower Body Colour Distribution">
+    <figcaption>Figure 7: Upper and Lower Body Colour Distribution of NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <p>Attributes include: 5 upper body clothing types (t-shirt, polo-shirt, shirt, jacket, dresses), 5 lower body clothing types (shorts, jeans, pants, shirt, dresses), plus accessories (hat, glasses, handbag, backpack, messenger bag), and transportation (bike, e-scooter).</p>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig8-clothing-types.png" alt="Figure 8: Distribution of Clothing Types and Accessories">
+    <figcaption>Figure 8: Distribution of Clothing Types, Accessory and Transport in NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="../assets/img/datasets/ntu-outdoor/fig9-gender-ratio.png" alt="Figure 9: Male and Female Ratio">
+    <figcaption>Figure 9: Male and Female Ratio of Participants and Images in NTU-Outdoor Dataset.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th>Dataset</th><th>Market-1501</th><th>DukeMTMC-reID</th><th>MSMT17</th><th>NTU Outdoor</th></tr></thead>
+    <tbody><tr><td>Attribute Labels</td><td>30</td><td>23</td><td>—</td><td><strong>40</strong></td></tr></tbody>
+  </table>
+
+  <h2>Overall Comparison</h2>
+
+  <table>
+    <thead><tr><th>Dataset</th><th>Market-1501</th><th>DukeMTMC-reID</th><th>MSMT17</th><th>NTU-Outdoor</th><th>NTU-Outdoor-38 (Released)</th></tr></thead>
+    <tbody>
+      <tr><td>Surveillance Camera</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Number of Cameras</td><td>6</td><td>8</td><td>15</td><td>51</td><td>38</td></tr>
+      <tr><td>Collection Period</td><td>1 Day</td><td>1 Day</td><td>4 Days</td><td>8 Weeks</td><td>8 Weeks</td></tr>
+      <tr><td>Time Coverage</td><td>—</td><td>—</td><td>Morning / Noon / Afternoon</td><td>24 Hours (Day &amp; Night)</td><td>24 Hours (Day &amp; Night)</td></tr>
+      <tr><td>Number of Identities</td><td>1501</td><td>1812</td><td>4101</td><td>805</td><td>549</td></tr>
+      <tr><td>Number of BBoxes</td><td>32,668</td><td>36,411</td><td>126,441</td><td>66,084</td><td>48,347</td></tr>
+      <tr><td>Attribute Labels</td><td>30</td><td>23</td><td>—</td><td>40</td><td>40</td></tr>
+      <tr><td>Person Detection</td><td>DPM</td><td>DPM</td><td>Faster RCNN</td><td>YOLO V3</td><td>YOLO V3</td></tr>
+    </tbody>
+  </table>
+
+  <a href="https://rose1.ntu.edu.sg/dataset/NTU-Outdoor-38/" class="download-btn" target="_blank" rel="noopener">&#8595; Download NTU-Outdoor-38 Dataset</a>
+
+</div>
+</body>
+</html>
