@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trusted Media Challenge — Lin Shan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0f172a; --blue: #3b82f6; --slate-50: #f8fafc; --slate-200: #e2e8f0; --slate-500: #64748b; --slate-700: #334155; --slate-800: #1e293b; --white: #ffffff; --max-w: 860px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: var(--slate-800); background: var(--white); }
+    a { color: var(--blue); text-decoration: none; } a:hover { text-decoration: underline; }
+    nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 54px; }
+    .nav-back { color: rgba(255,255,255,0.65); font-size: 0.875rem; font-weight: 500; }
+    .nav-back:hover { color: white; text-decoration: none; }
+    .nav-sep { color: rgba(255,255,255,0.3); }
+    .nav-title { color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, #162032 100%); color: white; padding: 52px 24px 60px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); background: rgba(59,130,246,0.12); display: inline-block; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+    .hero-title { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    .hero-result { font-size: 1.1rem; color: rgba(255,255,255,0.7); }
+    .hero-result strong { color: white; }
+    .content { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    h2 { font-size: 1.4rem; font-weight: 700; color: var(--slate-800); margin: 48px 0 16px; padding-top: 8px; border-top: 2px solid var(--blue); display: inline-block; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--slate-800); margin: 32px 0 10px; }
+    p { color: var(--slate-700); line-height: 1.8; margin-bottom: 16px; }
+    .sub-tasks { display: flex; gap: 12px; margin: 24px 0; flex-wrap: wrap; }
+    .sub-task { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 160px; text-align: center; }
+    .sub-task-num { font-size: 1.5rem; font-weight: 800; color: var(--blue); }
+    .sub-task-name { font-size: 0.85rem; font-weight: 600; color: var(--slate-700); margin-top: 4px; }
+    .figure { margin: 28px 0; }
+    .figure img { width: 100%; border-radius: 8px; border: 1px solid var(--slate-200); }
+    .figure figcaption { font-size: 0.82rem; color: var(--slate-500); margin-top: 8px; text-align: center; font-style: italic; }
+    .video-link { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: white; padding: 9px 16px; border-radius: 6px; font-size: 0.86rem; font-weight: 600; margin: 4px 0; }
+    .video-link:hover { background: #3b82f6; text-decoration: none; }
+    .links-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+    .link-btn { display: inline-block; padding: 7px 14px; background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: 6px; font-size: 0.85rem; color: var(--blue); font-weight: 500; }
+    .link-btn:hover { background: var(--blue); color: white; text-decoration: none; }
+    hr { border: none; border-top: 1px solid var(--slate-200); margin: 36px 0; }
+    .result-banner { background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(29,78,216,0.08)); border: 1px solid rgba(59,130,246,0.25); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .result-banner p { margin: 0; color: var(--slate-700); }
+    .result-banner strong { color: var(--slate-800); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">&#8592; Lin Shan</a>
+    <span class="nav-sep">/</span>
+    <span class="nav-title">Trusted Media Challenge</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Competition &mdash; 9th Place</div>
+    <div class="hero-title">Trusted Media Challenge</div>
+    <div class="hero-result">Team Leader &middot; <strong>9th Place</strong> out of 475 teams &middot; <strong>2nd among Universities</strong></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <p>Fake media is an existential threat to societies today. AI Singapore launched the Trusted Media Challenge to test solutions and explore how AI technologies can combat fake media. This challenge focuses on the detection of audiovisual counterfeit media, where both video and audio modalities may be modified.</p>
+
+  <p>Our ROSE Lab team categorized the problem into <strong>3 sub-problems</strong> and developed 3 individual models:</p>
+
+  <div class="sub-tasks">
+    <div class="sub-task"><div class="sub-task-num">01</div><div class="sub-task-name">Deepfake Detection</div></div>
+    <div class="sub-task"><div class="sub-task-num">02</div><div class="sub-task-name">Audio &amp; Voice Forgery Detection</div></div>
+    <div class="sub-task"><div class="sub-task-num">03</div><div class="sub-task-name">Audio Swap Detection</div></div>
+  </div>
+
+  <hr>
+
+  <h3>1. Deepfake Detection</h3>
+  <p>Deepfakes use deep learning AI to replace the likeness of one person with another in video and digital media. Our deepfake model uses <strong>EfficientNet</strong> as a backbone classifier to differentiate natural faces from deepfake faces.</p>
+  <div class="links-row">
+    <a href="https://youtu.be/n2lpnF9XBY8" class="video-link" target="_blank" rel="noopener">&#9654; Deepfake Detection Demo (YouTube)</a>
+    <a href="https://www.bilibili.com/video/BV1dB4y1p75c" class="link-btn" target="_blank" rel="noopener">Bilibili</a>
+  </div>
+
+  <hr>
+
+  <h3>2. Audio and Voice Forgery Detection</h3>
+  <p>Voice forgery involves analyzing the voice characteristics of a target person and manipulating the original voice to sound like them. We convert the voice signal into <strong>MEL and MFCC</strong> spectrograms to detect any presence of tampering or forgery.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/trusted-media/model-audio-forgery.png" alt="Audio Forgery Detection Model">
+    <figcaption>Audio &amp; Voice Forgery Detection model architecture.</figcaption>
+  </figure>
+
+  <hr>
+
+  <h3>3. Audio Swap Detection</h3>
+  <p>Audio swap involves randomly swapping the audio of two videos. To detect this, we analyze the consistency of the voice signal and its corresponding lip motion using a refined <strong>SyncNet</strong> model with a 20-frame sliding window, producing a confidence score, distance score, and estimated offset time.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/trusted-media/model-audio-swap.png" alt="Audio Swap Detection Model">
+    <figcaption>Audio Swap Detection — sliding window approach for lip-audio consistency analysis.</figcaption>
+  </figure>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/trusted-media/model-syncnet.png" alt="SyncNet Model">
+    <figcaption>Refined SyncNet model for lip-audio synchronization detection.</figcaption>
+  </figure>
+
+  <div class="links-row">
+    <a href="https://youtu.be/bRzm8HSixZw" class="video-link" target="_blank" rel="noopener">&#9654; Lip Sync Detection Demo (YouTube)</a>
+    <a href="https://www.bilibili.com/video/BV1bS4y1p7WW" class="link-btn" target="_blank" rel="noopener">Bilibili</a>
+  </div>
+
+  <hr>
+
+  <h2>Overall System</h2>
+  <p>The overall system combines 3 individual model outputs (Deepfake Detection, Audio Forgery Detection, and Lip-Audio Sync Detector) and returns a unified confidence score.</p>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/trusted-media/model-overall.png" alt="Overall ROSE System Architecture">
+    <figcaption>ROSE Overall System: combining 3 models for a single confidence output.</figcaption>
+  </figure>
+
+  <div class="result-banner">
+    <p>We ranked <strong>9th in the Final Run</strong> out of <strong>475 total teams</strong> from both academia and industry — on par with leading industrial AI labs including Shopee, Alibaba, Ant Finance, and SenseTime. Our team placed <strong>2nd among all university teams</strong>.</p>
+  </div>
+
+  <figure class="figure">
+    <img src="../assets/img/competitions/trusted-media/leaderboard.png" alt="Final Leaderboard">
+    <figcaption>Final Leaderboard — Trusted Media Challenge 2021.</figcaption>
+  </figure>
+
+  <div class="links-row">
+    <a href="https://trustedmedia.aisingapore.org/" class="link-btn" target="_blank" rel="noopener">Challenge Website</a>
+    <a href="https://trustedmedia.aisingapore.org/competition/aisg/final-leaderboard/" class="link-btn" target="_blank" rel="noopener">Final Leaderboard</a>
+  </div>
+
+</div>
+</body>
+</html>
